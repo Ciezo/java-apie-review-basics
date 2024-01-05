@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 public class Person {
 
     private String fullName; 
+    protected long SSSId;
     
     private Random rand = new Random();
     private Calendar calendar = Calendar.getInstance();
@@ -20,9 +21,11 @@ public class Person {
     public Person(String fullName) {
         /** 
          * We process the GOVID in here
+         * We also assign the SSS number here
          */
         this.fullName = fullName;
         this.GOVID = processGOVID();
+        this.SSSId = assignSSSId();
     }
 
     private String processGOVID() {
@@ -45,6 +48,10 @@ public class Person {
         return processedID;
     }
 
+    private long assignSSSId() {
+        return rand.nextLong(999999999);
+    }
+
     public void setFullName(String fullName) {
         this.fullName = fullName; 
     }
@@ -55,6 +62,10 @@ public class Person {
 
     public String getGOVID() {
         return this.GOVID; 
+    }
+
+    public long getSSSId() {
+        return this.SSSId;
     }
     
 }
