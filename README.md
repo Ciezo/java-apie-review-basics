@@ -22,4 +22,4 @@ To extend a parent class to its child class.
 
 - Encapsulation 
 
-To use access modifiers, <code>private</code> and <code>public</code> or default.  
+To use access modifiers, <code>private</code>, <code>public</code>, and <code>protected</code> or default.  
