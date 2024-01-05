@@ -4,7 +4,7 @@ package person;
 
 import java.util.Random; 
 import java.util.Calendar; 
-
+import java.text.SimpleDateFormat;
 
 
 public class Person {
@@ -28,14 +28,19 @@ public class Person {
     private String processGOVID() {
         /**
          * This is the format 
-         * FullName + " " + number assigned + " " + present date
+         * FullName + " " + number assigned + present date
+         * @example
+         * Cloyd Van Secuya 688152024
          */
         
         int numberToAssign = rand.nextInt(1000);
-        String localDateNow = calendar.getTime().toString(); 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("M/d/yyyy");
+        String formattedDate = dateFormat.format(calendar.getTime());
+        // Remove the backward slashes, and output numbers only
+        formattedDate = formattedDate.replace("/", "");
         String convNumberToAssign = String.valueOf(numberToAssign);
         
-        String processedID = getFullName() + " " + convNumberToAssign + " " + localDateNow; 
+        String processedID = getFullName() + " " + convNumberToAssign + formattedDate; 
 
         return processedID;
     }
